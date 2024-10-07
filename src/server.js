@@ -3,7 +3,6 @@ import dotenv from 'dotenv'
 import mustache from 'mustache-express' 
 import path, {dirname} from 'path'
 import { fileURLToPath } from 'url';
-import mainRoutes from '../routes/index.js'
 import router from '../routes/index.js';
 
 // Carrega as variáveis de ambiente do arquivo .env para process.env.
@@ -34,10 +33,5 @@ server.use(express.static(path.join(__dirname, '../public')))
 server.use(router)
 
 
-server.use((req,res)=>{
-    res.status(404).send('Página não encontrada');
-})
-
-
 // Rotas
-server.listen(process.env.PORT) // Faz o servidor escutar em uma porta definida nas variáveis de ambiente.
+server.listen(process.env.PORT) // Faz o servidor escutar em uma porta definida nas variáveis de ambiente, no caso: 4000.
